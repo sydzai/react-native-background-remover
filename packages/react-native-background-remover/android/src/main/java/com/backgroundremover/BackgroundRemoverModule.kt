@@ -91,9 +91,9 @@ class BackgroundRemoverModule internal constructor(context: ReactApplicationCont
   }
 
   private fun saveImage(bitmap: Bitmap, fileName: String): String {
-    val file = File(reactApplicationContext.filesDir, fileName)
+    val file = File(reactApplicationContext.cacheDir, fileName)
     val fileOutputStream = FileOutputStream(file)
-    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream)
+    bitmap.compress(Bitmap.CompressFormat.PNG, 100, fileOutputStream)
     fileOutputStream.close()
     return file.toURI().toString()
   }
